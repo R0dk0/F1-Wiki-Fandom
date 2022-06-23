@@ -12,13 +12,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table (name = "points")
-public class Point {
+@Table(name = "fastestLaps")
+public class FastestLap {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer points;
+    private String fastestLap;
 
 }

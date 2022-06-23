@@ -8,17 +8,18 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Entity
-@Table (name = "points")
-public class Point {
+@Table(name = "carNumbers")
+
+public class CarNumber {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer points;
+    private Integer carNumber;
 
 }

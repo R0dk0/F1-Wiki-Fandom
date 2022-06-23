@@ -12,13 +12,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table (name = "points")
-public class Point {
+@Table(name = "polePositions")
+public class PolePosition {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer points;
+    private Integer polePosition;
 
 }

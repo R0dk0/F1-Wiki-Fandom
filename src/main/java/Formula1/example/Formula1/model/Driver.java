@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.awt.*;
-import java.util.Calendar;
 
 @Data
 @NoArgsConstructor
@@ -33,16 +31,16 @@ public class Driver {
     private String lastname;
 
 
-    @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn (name = "image_id", nullable = false)
     private Image driverImage;
 
     @Lob
     @Column(nullable = false)
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "born_id", nullable = false)
-    private Calendar born;
+    @Column
+    private String born;
 
     @ManyToOne
     @JoinColumn (name = "nationality_id", nullable = false)
@@ -88,7 +86,7 @@ public class Driver {
     private FastestLap fastestLaps;
 
     @ManyToOne
-    @JoinColumn(name = "points", nullable = false)
+    @JoinColumn(name = "points_id", nullable = false)
     private Point points;
 
     @Column(nullable = false)
