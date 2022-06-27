@@ -30,7 +30,6 @@ public class Driver {
     @Column(nullable = false)
     private String lastname;
 
-
     @ManyToOne
     @JoinColumn (name = "image_id", nullable = false)
     private Image driverImage;
