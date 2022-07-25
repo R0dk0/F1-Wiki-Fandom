@@ -21,4 +21,11 @@ public class Image {
 
     private String imageId;
 
+    @ManyToOne
+    @JoinColumn(name = "driver_id")
+    private Driver driver;
+
+    @ManyToOne
+    @JoinColumn(name = "circuit_id")
+    private Circuit circuit;
 }

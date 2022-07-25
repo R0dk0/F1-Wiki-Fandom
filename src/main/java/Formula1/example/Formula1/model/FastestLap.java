@@ -13,12 +13,15 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "fastestLaps")
+
 public class FastestLap {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String fastestLap;
+    @Column(nullable = false)
+    private String time;
+
 
 }

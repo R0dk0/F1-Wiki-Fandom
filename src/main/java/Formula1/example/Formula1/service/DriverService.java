@@ -13,12 +13,9 @@ public class DriverService {
 
     private final DriverRepository driverRepository;
 
-    private final DriverService driverService;
 
-
-    public DriverService(DriverRepository driverRepository, DriverService driverService) {
+    public DriverService(DriverRepository driverRepository) {
         this.driverRepository = driverRepository;
-        this.driverService = driverService;
     }
 
     public Driver findByName(String name) {
@@ -32,35 +29,35 @@ public class DriverService {
     }
 
     public void save(Driver driver) {
+
         driverRepository.save(driver);
     }
 
-    public Driver findByIdReturnDriver(Long id) {
+    public Driver findById(Long id) {
 
         Driver driver = driverRepository.findById(id)
                 .orElseThrow(() -> new RecordNotFoundException(String.format("Driver with this id not exist.",id)));
 
-        return Driver.builder()
-                .driverImage(driver.getDriverImage())
+        return Driver.builder()//.driverImage(driver.getDriverImage())
                 .name(driver.getName())
                 .surname(driver.getSurname())
                 .lastname(driver.getLastname())
                 .born(driver.getBorn())
-                .nationality(driver.getNationality())
-                .carNumber(driver.getCarNumber())
+              //.nationality(driver.getNationality())
+              //.carNumber(driver.getCarNumber())
                 .currentTeam(driver.getCurrentTeam())
                 .description(driver.getDescription())
-                .fastestLaps(driver.getFastestLaps())
+              //.fastestLaps(driver.getFastestLaps())
                 .firstRace(driver.getFirstRace())
                 .firstWin(driver.getFirstWin())
-                .podiums(driver.getPodiums())
-                .points(driver.getPoints())
-                .poles(driver.getPoles())
-                .wins(driver.getWins())
-                .worldTitles(driver.getWorldTitles())
-                .races(driver.getRaces())
+              //.podiums(driver.getPodiums())
+              //.points(driver.getPoints())
+              //.poles(driver.getPoles())
+              //.wins(driver.getWins())
+              //.worldTitles(driver.getWorldTitles())
+                //.races(driver.getRaces())
                 .seasonActivity(driver.getSeasonActivity())
-                .previousTeams(driver.getPreviousTeams())
+                .previousTeam(driver.getPreviousTeam())
                 .status(driver.getStatus())
                 .latestRace(driver.getLatestRace())
                 .latestWin(driver.getLatestWin())

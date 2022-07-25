@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -21,4 +22,6 @@ public class Podium {
 
     private Integer podium;
 
+    @OneToMany(mappedBy = "podiums")
+    private List<Driver> drivers;
 }

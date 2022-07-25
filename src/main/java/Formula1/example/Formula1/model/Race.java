@@ -6,21 +6,30 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "worldTitles")
+@Table(name = "races")
 
-public class WorldTitle {
+public class Race {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private Integer worldTitle;
+    private String name;
 
+    @Column(nullable = false)
+    private Integer raceNumber;
+
+    @Column(nullable = false)
+    private LocalDate dateOfRace;
+
+    @Column(nullable = false)
+    private String distance;
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -15,7 +16,6 @@ import javax.persistence.*;
 @Table(name = "drivers")
 
 public class Driver {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,9 +38,14 @@ public class Driver {
     @Column(nullable = false)
     private String description;
 
-    @Column
-    private String born;
+    @Column(nullable = false)
+    private LocalDate born;
 
+    @Column
+    private LocalDate died;
+
+    @Column(nullable = false)
+    private Integer raceNumber;
     @ManyToOne
     @JoinColumn (name = "nationality_id", nullable = false)
     private Nationality nationality;
@@ -51,22 +56,19 @@ public class Driver {
     @Column(nullable = false)
     private String seasonActivity;
 
-    @ManyToOne
-    @JoinColumn(name = "carNumber_id", nullable = false)
-    private CarNumber carNumber;
-
     @Column(nullable = false)
     private String currentTeam;
 
     @Column(nullable = false)
-    private String previousTeams;
+    private String previousTeam;
+
+    @ManyToOne
+    @JoinColumn(name = "fastestLaps_id", nullable = false)
+    private FastestLap fastestLap;
 
     @ManyToOne
     @JoinColumn(name = "wordTitles_id", nullable = false)
     private WorldTitle worldTitles;
-
-    @Column(nullable = false)
-    private String races;
 
     @ManyToOne
     @JoinColumn(name = "poles_id", nullable = false)
@@ -75,14 +77,9 @@ public class Driver {
     @ManyToOne
     @JoinColumn(name = "wins_id", nullable = false)
     private Win wins;
-
     @ManyToOne
     @JoinColumn(name = "podiums_id", nullable = false)
     private Podium podiums;
-
-    @ManyToOne
-    @JoinColumn(name = "fastestLaps_id", nullable = false)
-    private FastestLap fastestLaps;
 
     @ManyToOne
     @JoinColumn(name = "points_id", nullable = false)
