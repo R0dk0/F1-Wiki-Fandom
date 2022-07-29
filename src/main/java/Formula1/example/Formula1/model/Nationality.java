@@ -24,6 +24,7 @@ public class Nationality {
     @Column(nullable = false)
     private String nationality;
 
+    @Column(nullable = false)
     @OneToMany(mappedBy = "nationality")
     private List<Driver> drivers;
 

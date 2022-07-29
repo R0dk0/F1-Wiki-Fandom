@@ -49,6 +49,9 @@ public class Driver {
     @ManyToOne
     @JoinColumn (name = "nationality_id", nullable = false)
     private Nationality nationality;
+    @ManyToOne
+    @JoinColumn(name = "team_id", nullable = false)
+    private Team team;
 
     @Column(nullable = false)
     private String status;
@@ -96,6 +99,10 @@ public class Driver {
 
     @Column(nullable = false)
     private String latestWin;
+
+    @ManyToOne
+    private GrandPrix grandPrix;
+
 
 
 

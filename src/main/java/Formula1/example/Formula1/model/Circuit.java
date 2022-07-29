@@ -13,8 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table
-//
+@Table(name = "circuits")
 public class Circuit {
 
     @Id
@@ -27,6 +26,9 @@ public class Circuit {
     @Lob
     @Column(nullable = false)
     private String description;
+
+    @Column(nullable = false)
+    private String location;
 
     @Column(nullable = false)
     private Integer length;
@@ -44,9 +46,10 @@ public class Circuit {
     @ManyToOne
     @JoinColumn(name = "image_id" ,nullable = false)
     private Image circuitImage;
+    @ManyToOne
+    @JoinColumn(name = "grandPrix_id", nullable = false)
+    private GrandPrix grandPrix;
 
-    @Column(nullable = false)
-    private String location;
 
 
 }

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -40,5 +41,13 @@ public class Team {
     @Column(nullable = false)
     private Integer numberOfRaces;
 
+    @Column(nullable = false)
+    @OneToMany(mappedBy = "team")
+    private List<Driver> drivers;
+    @ManyToOne
+    private GrandPrix grandPrix;
+
+    @OneToMany(mappedBy = "constructor")
+    private List<Car> currentCar;
 
 }

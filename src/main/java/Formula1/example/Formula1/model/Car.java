@@ -35,9 +35,15 @@ public class Car {
     @Column(nullable = false)
     private Integer numberOfStarts;
 
+    @Enumerated(EnumType.STRING)
     @ManyToOne
     @JoinColumn(name = "engines_id",nullable = false)
     private Engine engine;
+    @ManyToOne
+    @JoinColumn(name = "team_id" , nullable = false)
+    private Team constructor;
+
+
 
 
 
